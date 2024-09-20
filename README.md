@@ -73,23 +73,26 @@ and g3(w[2],s1,~s0,c);
 and g4(w[3],s1,s0,d);
 or g5(y,w[0],w[1],w[2],w[3]);
 endmodule
-output:![gate level](https://github.com/user-attachments/assets/31fc256b-6ded-4e18-9f50-14999dfd94d6)
+output:![gate level](https://github.com/user-attachments/assets/5379d054-6e68-4afd-889f-e90972f4e258)
+
 
 
 4:1 MUX Data Flow Implementation
 
-module mux_4to1_dataflow (
-    input wire a,b,c,d,   
-    input wire S0, S1,           
-    output wire Y                
+module mul_data(
+    output Y,        
+    input I0, I1, I2, I3, 
+    input S0, S1     
 );
-assign Y = (S1 == 0 && S0 == 0) ? a :
-               (S1 == 0 && S0 == 1) ? b :
-               (S1 == 1 && S0 == 0) ? c :
-               (S1 == 1 && S0 == 1) ? d : 1'b0;
+
+    assign Y = (~S1 & ~S0 & I0) |  
+               (~S1 & S0 & I1)  |  
+               (S1 & ~S0 & I2)  |  
+               (S1 & S0 & I3);     
 
 endmodule
-output:![data flow](https://github.com/user-attachments/assets/238209f5-e417-44e6-8d11-0ec30e5556ad)
+output:![data flow](https://github.com/user-attachments/assets/74b9ae72-1a77-416f-b285-6c02501a3264)
+
 
 
 4:1 MUX Behavioral Implementation
@@ -110,7 +113,8 @@ begin
     endcase
 end
 endmodule
-output:![behavioral](https://github.com/user-attachments/assets/73482a57-9269-4815-89bf-8a18854786b7)
+output:![behavioral](https://github.com/user-attachments/assets/afba405a-449b-4314-8979-d865a42ba285)
+
 
 
 4:1 MUX Structural Implementation
