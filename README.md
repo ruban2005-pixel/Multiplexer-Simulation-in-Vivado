@@ -73,7 +73,8 @@ and g3(w[2],s1,~s0,c);
 and g4(w[3],s1,s0,d);
 or g5(y,w[0],w[1],w[2],w[3]);
 endmodule
-output:![gate level](https://github.com/user-attachments/assets/5379d054-6e68-4afd-889f-e90972f4e258)
+output:![mux](https://github.com/user-attachments/assets/6b83e712-3785-4d99-8772-d73679cfe3a2)
+
 
 
 
@@ -131,7 +132,8 @@ assign Y = (S1 == 0 && S0 == 0) ? a :
                (S1 == 1 && S0 == 1) ? d:
 
 endmodule
-output:![structural](https://github.com/user-attachments/assets/2007a939-4b50-43e6-8a22-054646d5d5f5)
+output:![mux s](https://github.com/user-attachments/assets/15c1fffc-3dbb-47b2-826b-a30453bd8c9c)
+
 
 
 
@@ -243,6 +245,8 @@ module mux4_to_1_tb;
                  $time, S1, S0, A, B, C, D, Y_gate, Y_dataflow, Y_behavioral, Y_structural);
     end
 endmodule
+ 
+OUTPUT:![TESTBENCH](https://github.com/user-attachments/assets/467de597-385b-4c32-8d19-4997fcf9ac17)
 
 
 Sample Output
